@@ -17,6 +17,14 @@ public class MoodAnalyzerTest {
 	}
 	
 	@Test
+	public void testMoodAnalyzerHAPPYnull() {
+		String message = null ;
+		obj = new MoodAnalyzer(message);
+		String myMood = obj.analyzingMood();
+		assertEquals("HAPPY" , myMood);
+	}
+	
+	@Test
 	public void testMoodAnalyzerHAPPY() {
 		String message = "I am in Happy Mood" ;
 		obj = new MoodAnalyzer(message);
