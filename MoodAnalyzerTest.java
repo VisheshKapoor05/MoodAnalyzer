@@ -16,9 +16,22 @@ public class MoodAnalyzerTest {
 		assertEquals("SAD" , myMood);
 	}
 	
+	// TC 3.1 passing null
 	@Test
 	public void testMoodAnalyzerHAPPYnull() {
 		String message = null ;
+		obj = new MoodAnalyzer(message);
+		String myMood = obj.analyzingMood();
+		assertEquals("HAPPY" , myMood);
+	}
+	
+	// TC 3.2 passing empty message
+	@Test
+	public void testMoodAnalyzerHAPPYempty() {
+		String message = "" ;
+		if(message == "") {
+			throw new MoodAnalysisException("Empty mood is not valid");
+		}
 		obj = new MoodAnalyzer(message);
 		String myMood = obj.analyzingMood();
 		assertEquals("HAPPY" , myMood);

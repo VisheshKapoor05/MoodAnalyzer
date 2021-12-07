@@ -20,8 +20,11 @@ public class MoodAnalyzer {
 			else
 				return "HAPPY";
 		}
-		catch(NullPointerException obj) {
-			return "HAPPY";
+		catch(Exception obj) {
+			if(this.message==null)
+				throw new MoodAnalysisException();
+			else
+				return message;
 		}
 		
 	}			
