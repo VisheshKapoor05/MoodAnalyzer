@@ -29,9 +29,6 @@ public class MoodAnalyzerTest {
 	@Test
 	public void testMoodAnalyzerHAPPYempty() {
 		String message = "" ;
-		if(message == "") {
-			throw new MoodAnalysisException("Empty mood is not valid");
-		}
 		obj = new MoodAnalyzer(message);
 		String myMood = obj.analyzingMood();
 		assertEquals("HAPPY" , myMood);

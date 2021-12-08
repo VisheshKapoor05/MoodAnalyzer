@@ -15,16 +15,17 @@ public class MoodAnalyzer {
 	
 	public String analyzingMood() {
 		try {
-			if(this.message.contains("Sad"))
-				return "SAD";
-			else
-				return "HAPPY";
-		}
-		catch(Exception obj) {
 			if(this.message==null)
 				throw new MoodAnalysisException();
-			else
-				return message;
+			else if(message == "") 
+				throw new MoodAnalysisException("Empty mood is not valid");
+			else if(this.message.contains("Sad"))
+				return "SAD";
+			else 
+				return "HAPPY";
+		}
+		catch(MoodAnalysisException obj) {
+			return obj.getMessage();
 		}
 		
 	}			
