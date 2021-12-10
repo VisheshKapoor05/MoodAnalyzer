@@ -16,9 +16,9 @@ public class MoodAnalyzer {
 	public String analyzingMood() {
 		try {
 			if(this.message==null)
-				throw new MoodAnalysisException();
+				throw new MoodAnalysisException(MoodAnalysisException.Exception.NULL_MOOD_EXCEPTION + "Null is not valid mood");
 			else if(message == "") 
-				throw new MoodAnalysisException("Empty mood is not valid");
+				throw new MoodAnalysisException(MoodAnalysisException.Exception.EMPTY_MOOD_EXCEPTION + "Empty mood is not valid");
 			else if(this.message.contains("Sad"))
 				return "SAD";
 			else 
@@ -27,6 +27,5 @@ public class MoodAnalyzer {
 		catch(MoodAnalysisException obj) {
 			return obj.getMessage();
 		}
-		
 	}			
 }
